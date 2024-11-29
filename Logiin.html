@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Patient Medical System</title>
+	<style type="text/css">
+		body {
+            background-color: #34495E;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .container {
+            background-color: #08244d;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            height: 75px;
+        }
+
+         .loginContainer {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #1e3d58;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+         img {
+            width: 150px;
+            right: 810px;
+            margin-top: -45px;
+            position: absolute;
+
+        }
+
+
+
+           h1 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+
+
+            input{
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+            background-color: #f1f1f1;
+            color: #34495E;
+        }
+
+
+
+            #in{
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #f39c12;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;  
+            margin-top: 20px;    
+        }
+
+        #in:hover {
+            background-color: #e67e22;
+        }
+
+
+            #out {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: none;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        #out:hover {
+            background-color: #c0392b;
+        }
+
+
+       #forgot{
+            color: #f39c12;
+            font-size: 14px;
+            text-decoration: none;
+            margin-top: 15px;
+            display: inline-block;
+
+        }
+
+        #forgot:hover {
+            text-decoration: underline;
+        }
+
+
+            .SocialMedia{
+            margin-top: 20px;
+            text-align: center;
+
+        }
+
+
+       .fa{
+            font-size: 20px;
+            text-decoration: none;
+            display: inline-block;
+            color: white;
+            margin: 0 10px;
+            border-radius: 100%;
+            padding: 10px;
+        }
+
+
+        .fa:hover {
+          background-color: #34495E; 
+          border-radius: 50%; 
+          padding: 10px;
+      }
+
+
+
+
+       .fa-facebook {
+            background: #08244d;
+            color: white;
+        }
+
+   .fa-google {
+            background: #08244d;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: white;
+            background-color: #1e3d58;
+            padding: 10px 0;
+        }
+
+
+
+	</style>
+</head>
+<body>
+    
+     <div class="container">
+        <img src="offlogo.png">
+        <h1>Patient Medical System</h1>
+    </div>
+    
+    <div class="loginContainer">
+    	<h1>Login</h1>
+
+    	<form>
+    		<input type="text" name="user" placeholder="Username">
+    		<input type="password" name="pass" id="password" placeholder="Password">
+    	</form>
+
+
+        <button type="checkbox" class="show" onclick="showPass()">Show Password</button>
+        <a href=""><button id="forgot">Forgot password?</button></a>
+    	<a href="dasshboard.html"><button id="in">Login</button></a>
+        <a href="index.html"><button id="out">Cancel</button></a>
+
+      
+      <div class="SocialMedia">
+      	<p>Or login With:</p>
+      	<a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-google"></a>
+        
+      </div>
+
+    </div>
+
+     <footer>
+        <p>&copy; 2024 Patient Medical System</p>
+    </footer> 
+
+
+
+
+
+
+
+    <script>
+        function showPass() {
+            var passwordField = document.getElementById("password");
+            var passwordButton = document.getElementById(".show");
+
+            // Toggle password visibility
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                passwordButton.textContent = "Hide Password"; // Change button text to "Hide Password"
+            } else {
+                passwordField.type = "password";
+                passwordButton.textContent = "Show Password"; // Change button text to "Show Password"
+            }
+        }
+    </script>
+
+
+
+
+
+    
+
+
+
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<title>Patient Medical System</title>
+	<style type="text/css">
+
+		  body {
+            background-color: #34495E;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background-color: #08244d;
+            color: white;
+            padding: 20px 0;
+            width: 100%;
+            height: 75px;
+        }
+
+
+         .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: #1e3d58;
+            padding-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+           
+        }
+
+
+
+        #sidebar{
+        	 display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+            margin-left: -30px;
+
+        }
+
+        ul{
+        	list-style-type: none;
+        }
+             
+
+        #logo{
+            width: 150px;
+            right: 760px;
+            margin-top: px;
+           
+        }
+
+         
+
+
+
+          h1 {
+             font-size: 40px;
+            text-align: center;
+            font-weight: bold;
+            margin-left: 200px;
+            margin-top: px;
+        }
+
+
+
+
+        img{
+        	width: 65px;
+        	border-radius: 50%;
+        	height: 65px;
+        	object-fit: cover;
+            margin-left: 1200px;
+        	position: absolute;
+            top: 35px;  	  
+        }
+
+
+
+       img:hover{
+       	cursor: pointer;
+       	 background-color: #00ffff; 
+          border-radius: 50%; 
+          padding: 10px;
+       }
+
+
+
+        h2 {
+            color: white;
+            font-size: 24px;
+            margin-top: 45px;
+            margin-left: 40px;
+        }
+
+
+        a {
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            margin: 10px 0;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: block;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #f39c12;
+        }
+
+        .chart{
+            background-color: #1e3d58;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+     
+        .top{
+            background-color: #1e3d58;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+
+        }
+
+
+        h3 {
+            font-size: 24px;
+        }
+
+         p {
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e3d58;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            margin-left: 225px;
+        }
+
+
+        .content {
+                margin-left: 240px;
+            }
+
+        
+        
+
+        
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<img src="offlogo.png" id="logo">
+		<h1>Patient Medical System</h1>
+		<img src="prof.jpg" id="prof">
+	</div>
+
+
+	<div class="sidebar">
+		<h2>Dashboard</h2>
+
+			<nav id="sidebar"> 
+				<ul>
+					<li><a href="index.html">Home</a></li>
+			        <li><a href="About.html">About</a></li>
+			        <li><a href="#appointments">Appointments</a></li>
+			        <li><a href="#patients">Patients</a></li>
+			        <li><a href="#settings">Settings</a></li>
+			        <li><a href="logiin.html">Logout</a></li>
+			    </ul>
+		    </nav>	    
+	</div>
+
+	<div class="content">
+        <div class="top">
+        
+            <h3>Welcome, Dr. Adriane Mavrick M. Mas</h3>
+            <p>Your medical system dashboard to manage appointments and patients.</p>
+        </div>
+
+
+         <div class="chart">
+            <h3>Monthly Patient Statistics</h3>
+            <canvas id="monthlyPatientsChart"></canvas>
+        </div>
+
+        <div class="chart">
+            <h3>Monthly Earnings</h3>
+            <canvas id="earningsChart"></canvas>
+        </div>
+
+        <div class="chart">
+            <h3>Patient Type Distribution</h3>
+            <canvas id="patientTypeChart"></canvas>
+        </div>
+    </div>
+
+   
+    <footer>
+        <p>&copy; 2024 Patient Medical System</p>
+    </footer>
+
+
+    <script type="text/javascript">
+
+
+
+          var chart1 = document.getElementById('monthlyPatientsChart').getContext('2d');
+         var monthlyPatientsChart = new Chart(chart1, {
+            type: 'bar',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Number of Patients',
+                    data: [120, 150, 180, 210, 250, 300],
+                    backgroundColor: '#3498db',
+                    borderColor: '#2980b9',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+
+        // Monthly Earnings Chart
+        var chart2 = document.getElementById('earningsChart').getContext('2d');
+        var earningsChart = new Chart(chart2, {
+            type: 'line',
+            data: {
+                labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                datasets: [{
+                    label: 'Earnings ($)',
+                    data: [5000, 5500, 6000, 6500, 7000, 7500],
+                    borderColor: 'white',
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+
+        // Patient Type Distribution Chart
+        var chart3 = document.getElementById('patientTypeChart').getContext('2d');
+        var patientTypeChart = new Chart(chart3, {
+            type: 'pie',
+            data: {
+                labels: ['Male', 'Female', 'Other'],
+                datasets: [{
+                    label: 'Patient Type Distribution',
+                    data: [40, 50, 10],
+                    backgroundColor: ['#1abc9c', '#00ffff', '#2ecc71'],
+                    borderColor: ['#2980b9', '#c0392b', '#27ae60'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+
+    </script>
+
+
+
+
+
+</body>
+</html>
